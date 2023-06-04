@@ -2,8 +2,10 @@ services:
   mongodb:
     image: 'mongo:latest'
     environment:
-      - 'MONGO_INITDB_DATABASE=mydatabase'
+      - 'MONGO_INITDB_DATABASE=helpmesprint'
       - 'MONGO_INITDB_ROOT_PASSWORD=secret'
       - 'MONGO_INITDB_ROOT_USERNAME=root'
     ports:
       - '27017'
+    volumes:
+      - ./mongofiles/data/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
